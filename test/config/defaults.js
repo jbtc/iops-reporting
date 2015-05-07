@@ -4,14 +4,6 @@ var config = require('../../config');
 
 describe('Configuration', function () {
 
-  describe('Connection Strings', function () {
-
-    it('should be secret by default', function () {
-      expect(config.connectionStrings.reporting).to.be.eql('secret');
-    });
-
-  });
-
   describe('Settings', function () {
 
     it('should have port 3000 by default', function () {
@@ -20,5 +12,27 @@ describe('Configuration', function () {
 
   });
 
+  describe('Connections', function () {
+
+    describe('Reporting', function () {
+
+      it('should have have valid connection configuration', function () {
+        var reporting = {
+          user: 'iopsadmin',
+          password: 'i0ps2@15',
+          server: '69.60.110.252',
+          database: 'Airport_CID_Term1_Zone1',
+          options: {
+            instanceName: 'IOPSNOW',
+            appName: 'iops-reporting'
+          }
+        };
+
+        expect(config.connections.reporting).to.be.eql(reporting);
+      })
+
+    });
+
+  });
 
 });
