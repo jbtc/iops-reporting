@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "start": "node",
     "test": "mocha test"
   },
   "author": "Tyler Garlick <tjgarlick@gmail.com>",

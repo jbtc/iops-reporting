@@ -13,7 +13,7 @@ module.exports.setup = function (app) {
   app.use(compression());
   app.use(responseTime());
   app.use(methodOverride());
-  app.use(serveStatic(__dirname + '/public'));
+  app.use(serveStatic(app.get('root') + '/public'));
 
   app.use(function (err, req, res, next) {
     console.error(err);

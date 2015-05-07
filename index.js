@@ -5,6 +5,7 @@ var express = require('express')
   , middleware = require('./config/middleware');
 
 var app = express();
+app.set('root', __dirname);
 
 middleware.setup(app);
 
