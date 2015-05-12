@@ -1,10 +1,12 @@
 'use strict';
 
-var nconf = require('nconf').env().argv();
+var Path = require('path');
 
-nconf.defaults({
-  reportingConnString: 'secret'
-});
+
+
+var nconf = require('nconf').argv().env();
+nconf.file(Path.resolve(__dirname, '../.dev.json'));
+
 
 module.exports = {
   settings: {
@@ -12,14 +14,15 @@ module.exports = {
   },
   connections: {
     reporting: {
-      user: nconf.get('sql-username'),
-      password: nconf.get('sql-password'),
-      server: nconf.get('sql-server'),
+      user: nconf.get('SQL_USERNAME'),
+      password: nconf.get('SQL_PASSWORD'),
+      server: nconf.get('SQL_SERVER'),
       database: 'Airport_CID_Term1_Zone1',
       options: {
-        instanceName: nconf.get('sql-instance-name'),
+        instanceName: nconf.get('SQL_INSTANCE'),
         appName: 'iops-reporting'
       }
     }
   }
 };
+

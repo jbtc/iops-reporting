@@ -1,0 +1,33 @@
+<link rel="import" href="../components/polymer/polymer.html">
+
+<link rel="import" href="../components/more-routing/more-route-selector.html">
+<link rel="import" href="../components/iron-pages/iron-pages.html">
+<link rel="import" href="../components/iron-selector/iron-selector.html">
+
+
+<!--Routes-->
+<link rel="import" href="gate-report.html">
+<link rel="import" href="reporting-index.html">
+
+
+<dom-module id="reporting-app">
+
+  <template>
+
+    <div class="container-fluid">
+      <more-route-selector>
+        <iron-pages>
+          <reporting-index></reporting-index>
+          <gate-report></gate-report>
+        </iron-pages>
+      </more-route-selector>
+    </div>
+
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'reporting-app'
+  })
+</script>

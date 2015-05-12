@@ -1,0 +1,20 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/more-routing/more-route.html">
+<link rel="import" href="../components/iron-ajax/iron-ajax.html">
+
+<dom-module id="reporting-index">
+
+  <template>
+    <more-route context path="/"></more-route>
+    <iron-ajax auto url="/v1/reports" handle-as="json" last-response="{{ajaxResponse}}"></iron-ajax>
+    <span>{{ajaxResponse}}</span>
+
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'reporting-index'
+  })
+</script>

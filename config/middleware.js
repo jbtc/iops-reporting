@@ -9,7 +9,7 @@ var bodyParser = require('body-parser')
 
 module.exports.setup = function (app) {
   // Middleware
-  app.use(bodyParser());
+  app.use(bodyParser.json());
   app.use(compression());
   app.use(responseTime());
   app.use(methodOverride());

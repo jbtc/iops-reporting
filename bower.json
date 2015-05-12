@@ -1,0 +1,29 @@
+{
+  "name": "iops-reporting",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Tyler Garlick <tjgarlick@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.9.0-rc.1",
+    "iron-elements": "PolymerElements/iron-elements",
+    "paper-elements": "PolymerElements/paper-elements#0.9.0",
+    "more-routing": "PolymerLabs/more-routing#0.9.0-rc3",
+    "bootstrap": "~3.3.4",
+    "bootstrap-sass": "~3.3.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "polymer": "0.9.0-rc.1"
+  }
+}
