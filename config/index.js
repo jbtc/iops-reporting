@@ -1,12 +1,9 @@
 'use strict';
 
-var Path = require('path');
+var Path = require('path')
+  , NConf = require('nconf').argv().env();
 
-
-
-var nconf = require('nconf').argv().env();
-nconf.file(Path.resolve(__dirname, '../.dev.json'));
-
+NConf.file(Path.resolve(__dirname, '../', '.dev.json'));
 
 module.exports = {
   settings: {
@@ -14,15 +11,14 @@ module.exports = {
   },
   connections: {
     reporting: {
-      user: nconf.get('SQL_USERNAME'),
-      password: nconf.get('SQL_PASSWORD'),
-      server: nconf.get('SQL_SERVER'),
+      user: NConf.get('SQL_USERNAME'),
+      password: NConf.get('SQL_PASSWORD'),
+      server: NConf.get('SQL_SERVER'),
       database: 'Airport_CID_Term1_Zone1',
       options: {
-        instanceName: nconf.get('SQL_INSTANCE'),
+        instanceName: NConf.get('SQL_INSTANCE'),
         appName: 'iops-reporting'
       }
     }
   }
 };
-

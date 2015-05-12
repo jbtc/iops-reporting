@@ -3,7 +3,7 @@
 var express = require('express')
   , config = require('./config')
   , middleware = require('./config/middleware')
-  , app = express();
+  , app = express()
   , router = require('./config/router');
 
 app.set('root', __dirname);
