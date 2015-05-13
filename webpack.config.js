@@ -1,17 +1,17 @@
 'use strict';
-var webpack = require('webpack'),
-  path = require('path');
+var webpack = require('webpack')
+  , path = require('path');
 
 // PATHS
 var PATHS = {
-  app: __dirname + '/public/app',
-  bower: __dirname + '/public/components'
+  app: __dirname + '/public',
+  bower: __dirname + '/public/bower_components'
 };
 
 module.exports = {
   context: PATHS.app,
   entry: {
-    app: ['webpack/hot/dev-server', './core/bootstrap.js']
+    app: ['webpack/hot/dev-server', './index.js']
   },
   output: {
     path: PATHS.app,
@@ -19,15 +19,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      },
-      {
-        test: /\.js$/,
-        loader: 'ng-annotate!babel!jshint',
-        exclude: /node_modules|bower_components/
-      }
+      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.js$/, loader: 'ng-annotate!babel!jshint', exclude: /node_modules|bower_components/ },
+      { test: /\.woff$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+      { test: /\.ttf$/, loader: "file-loader" },
+      { test: /\.eot$/, loader: "file-loader" },
+      { test: /\.svg$/, loader: "file-loader" },
+      { test: /\.html/, loader: 'raw' }
     ]
   }
 };
