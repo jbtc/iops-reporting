@@ -1,0 +1,21 @@
+<div class="aside" tabindex="-1" role="dialog" ng-controller="DateFilterController as filter">
+  <div class="aside-dialog">
+    <div class="aside-content">
+      <div class="aside-header" ng-show="title">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="aside-title" ng-bind="title"></h4>
+      </div>
+      <div class="aside-body">
+        <form ng-submit="filter.apply($hide)">
+          <div class="form-group">
+            <label for="dateFilter">Date Filter</label>
+            <select class="form-control" id="dateFilter" ng-model="filter.selectedDateFilter" ng-options="filterDate.name for filterDate in filter.dateFilters">
+            </select>
+          </div>
+          <button type="button" class="btn btn-default pull-left" ng-click="$hide()">Cancel</button>
+          <button type="submit" class="btn btn-primary pull-right">Apply</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
