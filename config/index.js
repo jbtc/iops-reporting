@@ -1,9 +1,13 @@
 'use strict';
 
 var Path = require('path')
+  , FS = require('fs')
   , NConf = require('nconf').argv().env();
 
-NConf.file(Path.resolve(__dirname, '../', '.dev.json'));
+var devEnvSettings = Path.resolve(__dirname, '../', '.dev.json');
+if (FS.existsSync(devEnvSettings)) {
+  NConf.file(devEnvSettings);
+}
 
 module.exports = {
   settings: {
