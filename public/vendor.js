@@ -1,12 +1,14 @@
 'use strict';
 
 module.exports = function () {
-  require('./styles/app.scss');
+  global._ = require('lodash');
+  global.$ = global.jQuery = require('jquery');
 
   require('angular');
   require('angular-new-router');
-
-  global.$ = global.jQuery = require('jquery');
-
   require('angular-strap');
+  require('angular-resource');
+  require('angular-chartist.js');
+  require('angular-loading-bar');
+
 };

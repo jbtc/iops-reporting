@@ -11,15 +11,17 @@ var PATHS = {
 module.exports = {
   context: PATHS.app,
   entry: {
-    app: ['webpack/hot/dev-server', './index.js']
+    app: ['./index.js']
   },
   output: {
     path: PATHS.app,
     filename: 'bundle.js'
   },
+  resolve: {
+    modulesDirectories: ['node_modules', PATHS.bower],
+  },
   module: {
     loaders: [
-      { test: /\.scss$/, loader: 'style!css!sass' },
       { test: /\.js$/, loader: 'ng-annotate!babel!jshint', exclude: /node_modules|bower_components/ },
       { test: /\.woff$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
       { test: /\.ttf$/, loader: "file-loader" },

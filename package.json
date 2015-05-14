@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base public --hot --port $PORT",
-    "dev": "webpack-dev-server --content-base public --hot --port $PORT",
+    "start": "nodemon --ignore public",
+    "dev": "nodemon",
     "test": "mocha test",
+    "webpack": "webpack-dev-server --content-base public --hot",
     "build-js": "duo -r public main.js",
     "build-sass": "duo --use duo-sass --root public --stdout index.scss > app.css"
   },
@@ -32,11 +33,17 @@
   },
   "dependencies": {
     "angular": "^1.4.0-rc.2",
+    "angular-chartist.js": "^3.1.1",
+    "angular-loading-bar": "^0.7.1",
+    "angular-resource": "^1.3.15",
     "angular-strap": "^2.2.0",
+    "angular-ui-router": "^0.2.14",
     "bluebird": "^2.9.25",
     "body-parser": "^1.12.3",
+    "bourbon": "^4.2.3",
     "common-errors": "^0.4.18",
     "compression": "^1.4.3",
+    "cors": "^2.6.0",
     "express": "^4.12.3",
     "jquery": "^2.1.4",
     "lodash": "^3.8.0",
@@ -45,6 +52,7 @@
     "mssql": "^2.1.3",
     "nconf": "^0.7.1",
     "response-time": "^2.3.0",
-    "serve-static": "^1.9.2"
+    "serve-static": "^1.9.2",
+    "webpack-dev-middleware": "^1.0.11"
   }
 }

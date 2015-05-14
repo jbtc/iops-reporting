@@ -5,13 +5,13 @@ var bodyParser = require('body-parser')
   , compression = require('compression')
   , responseTime = require('response-time')
   , methodOverride = require('method-override')
-  , errors = require('common-errors');
-
+  , errors = require('common-errors')
+  , cors = require('cors');
 
 module.exports.setup = function (app) {
   // Middleware
   app.use(bodyParser.json());
-
+  app.use(cors());
   app.use(errors.middleware.crashProtector());
   app.use(compression());
   app.use(responseTime());
