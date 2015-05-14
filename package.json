@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --ignore public",
-    "dev": "nodemon",
     "test": "mocha test",
-    "webpack": "webpack-dev-server --content-base public --hot",
-    "build-js": "duo -r public main.js",
-    "build-sass": "duo --use duo-sass --root public --stdout index.scss > app.css"
+    "webpack": "webpack-dev-server --content-base public --hot"
   },
   "author": "Tyler Garlick <tjgarlick@gmail.com>",
   "license": "MIT",
