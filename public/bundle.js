@@ -163,15 +163,15 @@
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
 	module.exports = function () {
-	  global._ = __webpack_require__(8);
+	  global._ = __webpack_require__(7);
 	  global.$ = global.jQuery = __webpack_require__(11);
 
-	  __webpack_require__(7);
+	  __webpack_require__(8);
 	  __webpack_require__(12);
 	  __webpack_require__(10);
 	  __webpack_require__(9);
-	  __webpack_require__(13);
 	  __webpack_require__(14);
+	  __webpack_require__(13);
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
@@ -243,7 +243,7 @@
 	'use strict';
 
 	var moment = __webpack_require__(22),
-	    _ = __webpack_require__(8);
+	    _ = __webpack_require__(7);
 
 	var EventingModule = __webpack_require__(18),
 	    DateFilterModule = __webpack_require__(20),
@@ -313,7 +313,7 @@
 	'use strict';
 
 	var moment = __webpack_require__(22),
-	    _ = __webpack_require__(8);
+	    _ = __webpack_require__(7);
 
 	var EventingModule = __webpack_require__(18),
 	    DateFilterModule = __webpack_require__(20),
@@ -370,14 +370,6 @@
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(15);
-	module.exports = angular;
-
-
-/***/ },
-/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -12584,6 +12576,14 @@
 	}.call(this));
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module), (function() { return this; }())))
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(15);
+	module.exports = angular;
+
 
 /***/ },
 /* 9 */
@@ -28435,98 +28435,6 @@
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
-	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21), __webpack_require__(23)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	    } else if (typeof exports === 'object') {
-	        module.exports = factory(require('angular'), require('chartist'));
-	    } else {
-	        root.angularChartist = factory(root.angular, root.Chartist);
-	    }
-	}(this, function (angular, Chartist) {
-
-	    /* global angular, Chartist */
-	    'use strict';
-
-	    var angularChartist = angular.module('angular-chartist', []);
-
-	    function AngularChartistCtrl($scope) {
-	        this.data = $scope.data();
-	        this.chartType = $scope.chartType;
-
-	        this.events = $scope.events() || {};
-	        this.options = $scope.chartOptions() || null;
-	        this.responsiveOptions = $scope.responsiveOptions() || null;
-	    }
-
-	    AngularChartistCtrl.$inject = ['$scope'];
-
-	    AngularChartistCtrl.prototype.bindEvents = function (chart) {
-	        Object.keys(this.events).forEach(function (eventName) {
-	            chart.on(eventName, this.events[eventName]);
-	        }, this);
-	    };
-
-	    AngularChartistCtrl.prototype.renderChart = function (element) {
-	        return Chartist[this.chartType](element, this.data, this.options, this.responsiveOptions);
-	    };
-
-	    angularChartist.directive('chartist', [
-
-	    function () {
-	        return {
-	            restrict: 'EA',
-	            scope: {
-	                // mandatory
-	                data: '&chartistData',
-	                chartType: '@chartistChartType',
-	                // optional
-	                events: '&chartistEvents',
-	                chartOptions: '&chartistChartOptions',
-	                responsiveOptions: '&chartistResponsiveOptions'
-	            },
-	            controller: AngularChartistCtrl,
-	            link: function (scope, element, attrs, Ctrl) {
-	                var elm = element[0];
-	                var chart = Ctrl.renderChart(elm);
-
-	                Ctrl.bindEvents(chart);
-
-	                scope.$watch(function () {
-	                    return {
-	                        data: scope.data(),
-	                        chartType: scope.chartType,
-	                        chartOptions: scope.chartOptions()
-	                    };
-	                }, function (newConfig, oldConfig) {
-	                    // Update controller with new configuration
-	                    Ctrl.chartType = newConfig.chartType;
-	                    Ctrl.data = newConfig.data;
-	                    Ctrl.options = newConfig.chartOptions;
-
-	                    // If chart type changed we need to recreate whole chart, otherwise we can update
-	                    if (newConfig.chartType !== oldConfig.chartType) {
-	                        chart = Ctrl.renderChart(elm);
-	                    } else {
-	                        chart.update(Ctrl.data, Ctrl.options);
-	                    }
-	                }, true);
-
-	                scope.$on('$destroy', function () {
-	                    chart.detach();
-	                });
-	            }
-	        };
-	    }]);
-
-	    return angularChartist;
-
-	}));
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/*
 	 * angular-loading-bar
 	 *
@@ -28846,6 +28754,98 @@
 	  });       // wtf javascript. srsly
 	})();       //
 
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
+	    if (true) {
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21), __webpack_require__(23)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else if (typeof exports === 'object') {
+	        module.exports = factory(require('angular'), require('chartist'));
+	    } else {
+	        root.angularChartist = factory(root.angular, root.Chartist);
+	    }
+	}(this, function (angular, Chartist) {
+
+	    /* global angular, Chartist */
+	    'use strict';
+
+	    var angularChartist = angular.module('angular-chartist', []);
+
+	    function AngularChartistCtrl($scope) {
+	        this.data = $scope.data();
+	        this.chartType = $scope.chartType;
+
+	        this.events = $scope.events() || {};
+	        this.options = $scope.chartOptions() || null;
+	        this.responsiveOptions = $scope.responsiveOptions() || null;
+	    }
+
+	    AngularChartistCtrl.$inject = ['$scope'];
+
+	    AngularChartistCtrl.prototype.bindEvents = function (chart) {
+	        Object.keys(this.events).forEach(function (eventName) {
+	            chart.on(eventName, this.events[eventName]);
+	        }, this);
+	    };
+
+	    AngularChartistCtrl.prototype.renderChart = function (element) {
+	        return Chartist[this.chartType](element, this.data, this.options, this.responsiveOptions);
+	    };
+
+	    angularChartist.directive('chartist', [
+
+	    function () {
+	        return {
+	            restrict: 'EA',
+	            scope: {
+	                // mandatory
+	                data: '&chartistData',
+	                chartType: '@chartistChartType',
+	                // optional
+	                events: '&chartistEvents',
+	                chartOptions: '&chartistChartOptions',
+	                responsiveOptions: '&chartistResponsiveOptions'
+	            },
+	            controller: AngularChartistCtrl,
+	            link: function (scope, element, attrs, Ctrl) {
+	                var elm = element[0];
+	                var chart = Ctrl.renderChart(elm);
+
+	                Ctrl.bindEvents(chart);
+
+	                scope.$watch(function () {
+	                    return {
+	                        data: scope.data(),
+	                        chartType: scope.chartType,
+	                        chartOptions: scope.chartOptions()
+	                    };
+	                }, function (newConfig, oldConfig) {
+	                    // Update controller with new configuration
+	                    Ctrl.chartType = newConfig.chartType;
+	                    Ctrl.data = newConfig.data;
+	                    Ctrl.options = newConfig.chartOptions;
+
+	                    // If chart type changed we need to recreate whole chart, otherwise we can update
+	                    if (newConfig.chartType !== oldConfig.chartType) {
+	                        chart = Ctrl.renderChart(elm);
+	                    } else {
+	                        chart.update(Ctrl.data, Ctrl.options);
+	                    }
+	                }, true);
+
+	                scope.$on('$destroy', function () {
+	                    chart.detach();
+	                });
+	            }
+	        };
+	    }]);
+
+	    return angularChartist;
+
+	}));
 
 /***/ },
 /* 15 */
@@ -57709,7 +57709,7 @@
 
 	var EventingModule = __webpack_require__(18),
 	    moment = __webpack_require__(22),
-	    _ = __webpack_require__(8);
+	    _ = __webpack_require__(7);
 
 	var DateFilterService = (function () {
 	  function DateFilterService($aside) {
