@@ -1,13 +1,12 @@
 'use strict';
 
-var main = angular.module('app.main', []);
 
 class MainController {
   constructor() {
-    this.name = 'Hello World';
+    this.name = 'Hello World 1';
   }
 }
 
-main.controller('MainController', [MainController]);
 
-export default main;
+export default angular.module('app.main', [])
+  .controller('MainController', [MainController]);

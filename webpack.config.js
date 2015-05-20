@@ -11,7 +11,7 @@ var PATHS = {
 module.exports = {
   context: PATHS.app,
   entry: {
-    app: ['./index.js']
+    app: ['webpack/hot/dev-server','./index.js']
   },
   output: {
     path: PATHS.app,
