@@ -10,12 +10,14 @@ var formatter = require('../lib/services/formatter');
 router.get('/', function (req, res, next) {
 
   var endDate = Moment(req.query.ends);
-  var startDate = Moment(req.query.starts).subtract(1, 'day');
+  var startDate = Moment(req.query.starts).subtract(6, 'hours');
   var exportKind = (req.query.export || 'json').toLowerCase();
+  var gate = req.query.gate || '';
+  var plc = req.query.plc || '';
 
-  reportingService.findBetweenDates(startDate, endDate)
+
+  reportingService.findBy(gate, plc, startDate, endDate)
     .then(function (results) {
-
       switch (exportKind) {
         case 'csv':
           return formatter.toCSV(results)
@@ -27,9 +29,9 @@ router.get('/', function (req, res, next) {
             .then(function (pdf) {
               res.sendFile(pdf.filename);
             });
-          return res.send(formatter.generatePdf(results))
+          return res.send(formatter.generatePdf(results));
         default :
-          return res.send(results);
+          return res.json(results);
       }
     })
     .catch(function (err) {
